@@ -1,0 +1,12 @@
+{
+  "name": "item-mini-convert-webp",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "convert": "node convert.js",
+    "convert:delete-png": "node convert.js --delete-png"
+  },
+  "dependencies": {
+    "sharp": "^0.33.5"
+  }
+}
