@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "convert": "node convert.js",
-    "convert:delete-png": "node convert.js --delete-png"
+    "convert:delete-png": "node convert.js --delete-png",
+    "delete-png": "node delete-png-if-webp.js"
   },
   "dependencies": {
     "sharp": "^0.33.5"
