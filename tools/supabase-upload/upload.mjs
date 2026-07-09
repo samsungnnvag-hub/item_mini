@@ -288,7 +288,7 @@ async function main() {
 
   const supabaseUrl = process.env.SUPABASE_URL
   const serviceKey = process.env.SUPABASE_SERVICE_KEY
-  const bucket = process.env.SUPABASE_BUCKET || 'quanao'
+  const bucket = process.env.SUPABASE_BUCKET || 'item_mini'
 
   if (!opts.dryRun && (!supabaseUrl || !serviceKey)) {
     console.error('Thiếu SUPABASE_URL hoặc SUPABASE_SERVICE_KEY trong .env')
@@ -409,9 +409,9 @@ async function main() {
 
   saveProgress(progress)
   console.log('\n\nXong.')
-  console.log(`Public URL mẫu: ${publicUrl(supabaseUrl, bucket, queue[0]?.storagePath || 'male_0_1_0.webp')}`)
-  console.log('\nCập nhật mini-case configmedia.lua:')
-  console.log(`  ClothingImage.BaseUrl = '${supabaseUrl.replace(/\/$/, '')}/storage/v1/object/public/${bucket}'`)
+  console.log(`Public URL mẫu: ${publicUrl(supabaseUrl, bucket, queue[0]?.storagePath || 'anchor.webp')}`)
+  console.log('\nBase URL ảnh item trên Supabase:')
+  console.log(`  ${supabaseUrl.replace(/\/$/, '')}/storage/v1/object/public/${bucket}/`)
   if (progress.stats.fail > 0) {
     console.log(`\nCó ${progress.stats.fail} file lỗi → xem ${FAILURES_FILE}`)
     console.log('Chạy lại: node upload.mjs --retry-failed')
