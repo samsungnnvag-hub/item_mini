@@ -1,0 +1,4 @@
+node_modules/
+.env
+upload-progress.json
+upload-failures.jsonl
