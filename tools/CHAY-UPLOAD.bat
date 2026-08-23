@@ -12,8 +12,23 @@ if errorlevel 1 (
 )
 
 if not exist ".env" (
-  echo [LOI] Chua co file .env
-  echo Copy .env.example thanh .env roi dien SUPABASE_URL + SUPABASE_SERVICE_KEY
+  if exist ".env.example" (
+    copy /y ".env.example" ".env" >nul
+    echo [OK] Da tao file .env tu .env.example
+  ) else (
+    echo [LOI] Thieu ca .env va .env.example
+    pause
+    exit /b 1
+  )
+)
+
+findstr /c:"YOUR_PROJECT" /c:"eyJhbGciOi..." ".env" >nul
+if not errorlevel 1 (
+  echo [LOI] Chua dien thong tin Supabase trong file .env
+  echo Mo file: %cd%\.env
+  echo Dien SUPABASE_URL + SUPABASE_SERVICE_KEY ^(service_role, khong dung anon^)
+  echo.
+  notepad ".env"
   pause
   exit /b 1
 )
